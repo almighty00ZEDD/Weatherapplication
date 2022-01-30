@@ -38,10 +38,7 @@ public class Connexion extends AppCompatActivity {
         setContentView(R.layout.activity_connexion);
 
         //assignation des variables
-        mAuth = FirebaseAuth.getInstance();
-        ET_email = findViewById(R.id.Email);
-        ET_mdp = findViewById(R.id.Password);
-        Btn_Login = findViewById(R.id.loginButton);
+        initialisation();
 
         Btn_Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,5 +72,12 @@ public class Connexion extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void initialisation(){
+        mAuth = FirebaseAuth.getInstance();
+        ET_email = findViewById(R.id.Email);
+        ET_mdp = findViewById(R.id.Password);
+        Btn_Login = findViewById(R.id.loginButton);
     }
 }

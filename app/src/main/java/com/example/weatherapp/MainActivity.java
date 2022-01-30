@@ -16,6 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -30,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
     EditText editText;
     Button button;
     ImageView imageView;
-    TextView temptv, time, longitude, latitude, humidity, sunrise, sunset, pressure, wind, country, city_nam, max_temp, min_temp, feels;
+    TextView usrName,temptv, time, longitude, latitude, humidity, sunrise, sunset, pressure, wind, country, city_nam, max_temp, min_temp, feels;
 
-
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +52,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     //Références vers les éléments du GUI XML
     private void initialisation() {
+
+        usrName = findViewById(R.id.textView);
         editText = findViewById(R.id.editTextTextPersonName);
         button = findViewById(R.id.button);
         imageView = findViewById(R.id.imageView);
