@@ -1,10 +1,14 @@
 package com.example.weatherapp;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 public final class User {
 
-    private String nom,email,motDePasse,prenom;
+    private Optional<String> nom = Optional.ofNullable(null);
+    private Optional<String> prenom = Optional.ofNullable(null);
+    private Optional<String> email = Optional.ofNullable(null);
+    private Optional<String> motDePasse = Optional.ofNullable(null);
     private HashMap<String,Integer> preferences;
 
     public User(){
@@ -12,15 +16,15 @@ public final class User {
     }
 
     public User(String email, String motDePasse){
-        this.email = email;
-        this.motDePasse = motDePasse;
+        this.email = Optional.ofNullable(email);
+        this.motDePasse = Optional.ofNullable(motDePasse);
     }
 
     public User(String email, String motDePasse, String nom, String prenom){
-        this.email = email;
-        this.motDePasse = motDePasse;
-        this.nom = nom;
-        this.prenom = prenom;
+        this.email = Optional.ofNullable(email);
+        this.motDePasse = Optional.ofNullable(motDePasse);
+        this.nom = Optional.ofNullable(nom);
+        this.prenom = Optional.ofNullable(prenom);
         preferences = new HashMap<String,Integer>();
     }
 
@@ -37,7 +41,7 @@ public final class User {
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        this.nom = Optional.ofNullable(nom);
     }
 
     public String getEmail() {
@@ -45,7 +49,7 @@ public final class User {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = Optional.ofNullable(email);
     }
 
     public String getMotDePasse() {
@@ -53,7 +57,7 @@ public final class User {
     }
 
     public void setMotDePasse(String motDePasse) {
-        this.motDePasse = motDePasse;
+        this.motDePasse = Optional.ofNullable(motDePasse);
     }
 
 
